@@ -9,7 +9,7 @@ var defineSearch = function( params ){
   };
 
   // from pseudocode on wikipedia
-  return function searchFn( roots, fn, directed ){
+  return function searchFn( roots, fn, directed, reverse){
     var options;
     var std;
     var thisArg;
@@ -18,11 +18,13 @@ var defineSearch = function( params ){
       roots = options.roots || options.root;
       fn = options.visit;
       directed = options.directed;
+      reverse = options.reverse;
       std = options.std;
       thisArg = options.thisArg;
     }
 
     directed = arguments.length === 2 && !is.fn( fn ) ? fn : directed;
+    reverse = arguments.length === 2 && !is.fn( fn ) ? fn : reverse;
     fn = is.fn( fn ) ? fn : function(){};
 
     var cy = this._private.cy;
@@ -83,7 +85,7 @@ var defineSearch = function( params ){
         break;
       }
 
-      var vwEdges = v.connectedEdges( directed ? function(){ return this.data( 'source' ) === v.id(); } : undefined ).intersect( edges );
+      var vwEdges = v.connectedEdges( directed ? function(){ return reverse ? (this.data('target') === v.id()) : (this.data( 'source' ) === v.id()); } : undefined ).intersect( edges );
       for( var i = 0; i < vwEdges.length; i++ ){
         var e = vwEdges[ i ];
         var w = e.connectedNodes( function(){ return this.id() !== v.id(); } ).intersect( nodes );
