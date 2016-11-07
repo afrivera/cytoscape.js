@@ -7,7 +7,7 @@ var defineSearch = function( params ){
     bfs: params.bfs || !params.dfs,
     dfs: params.dfs || !params.bfs
   };
-
+  
   // from pseudocode on wikipedia
   return function searchFn( roots, fn, directed, reverse){
     var options;

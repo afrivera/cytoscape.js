@@ -2,7 +2,7 @@
 
 /*!
 
-Cytoscape.js snapshot-f5afa2d124-1478546002826 (MIT licensed)
+Cytoscape.js snapshot-f5afa2d124-147854600282645 (MIT licensed)
 
 Copyright (c) The Cytoscape Consortium
 
@@ -860,7 +860,7 @@ var defineSearch = function( params ){
     bfs: params.bfs || !params.dfs,
     dfs: params.dfs || !params.bfs
   };
-
+  
   // from pseudocode on wikipedia
   return function searchFn( roots, fn, directed, reverse){
     var options;
@@ -27029,7 +27029,7 @@ util.debounce = function( func, wait, options ){ // ported lodash debounce funct
 module.exports = util;
 
 },{"../is":83,"../window":107}],106:[function(_dereq_,module,exports){
-module.exports="snapshot-f5afa2d124-1478546002826"
+module.exports="snapshot-f5afa2d124-147854600282645"
 },{}],107:[function(_dereq_,module,exports){
 module.exports = ( typeof window === 'undefined' ? null : window ); // eslint-disable-line no-undef
 
